@@ -126,7 +126,12 @@ const Sidebar = ({
             },
           }}
         >
-          <Box width="100%">
+          <Box
+            width="100%"
+            display="flex"
+            flexDirection="column"
+            sx={{ position: "relative" }}
+          >
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
@@ -141,7 +146,7 @@ const Sidebar = ({
                 )}
               </FlexBetween>
             </Box>
-            <List>
+            <List sx={{ flex: 1, overflowY: "auto" }}>
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
@@ -191,8 +196,16 @@ const Sidebar = ({
               })}
             </List>
           </Box>
-          <Box bottom="2rem">
-            <Divider />
+          <Box
+            sx={{
+              position: "sticky",
+              bottom: 0,
+              zIndex: 1,
+              backgroundColor: theme.palette.background.alt,
+              mt: "auto",
+              py: "1rem",
+            }}
+          >
             <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
               {/*<Box component="img" alt="profile" src ={profileImage} height="40px" width="40px" borderRaduis="50%" sx={{objectFit: "cover"}}></Box>*/}
               <Box textAlign="left">
